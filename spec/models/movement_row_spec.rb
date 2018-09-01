@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.shared_examples "a parsed movement row" do
   it "parses iban" do
-    byebug
     expect(movement.iban).to eql(expected_values[:iban])
   end
 
@@ -23,7 +22,7 @@ RSpec.shared_examples "a parsed movement row" do
   end
 
   it "parses credit" do
-    expect(movement.credit?).to eql(expected_values[:credit])
+    expect(movement.credit?).to eql(!expected_values[:debit])
   end
 
   it "parses money_transaction" do
@@ -57,7 +56,6 @@ RSpec.describe MovementRow do
           date: "03/04/2017",
           amount: -3.56,
           debit: true,
-          credit: false,
           money_transaction: true,
           bank_communication: false,
           communication: nil,
@@ -93,7 +91,6 @@ RSpec.describe MovementRow do
           date: "10/04/2017",
           amount: -173.03,
           debit: true,
-          credit: false,
           money_transaction: true,
           bank_communication: false,
           communication: "F17-0100014443",
@@ -125,7 +122,6 @@ RSpec.describe MovementRow do
           date: "03/04/2017",
           amount: 10.0,
           debit: false,
-          credit: true,
           money_transaction: true,
           bank_communication: false,
           communication: "Doe VPN",
@@ -145,7 +141,6 @@ RSpec.describe MovementRow do
           date: "03/04/2017",
           amount: 8.0,
           debit: false,
-          credit: true,
           money_transaction: true,
           bank_communication: false,
           communication: "B12ADEB34FC5DFC",
