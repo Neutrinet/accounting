@@ -41,7 +41,9 @@ class MovementIdentifier
   end
 
   def olimex?
-    %w(BG23PRCB92301450517901 GB24MIDL40051570524370).include?(movement_row.iban)
+    %w(BG89FINV91501016150445
+       BG23PRCB92301450517901
+       GB24MIDL40051570524370).include?(movement_row.iban)
   end
 
   def gandi?

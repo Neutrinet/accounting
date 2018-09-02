@@ -74,12 +74,42 @@ RSpec.describe MovementRow do
     describe "bank communication" do
     end
 
-    # TODO
     describe "hardware order" do
+      let(:fixture_name) { "olimex" }
+      let(:expected_values) do
+        {
+          iban: "BG89FINV91501016150445",
+          number: "245",
+          date: "01/08/2017",
+          amount: -243.42,
+          debit: true,
+          money_transaction: true,
+          bank_communication: false,
+          communication: ".W-TB010817",
+          movement_type: "hardware_order"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
     end
 
-    # TODO
     describe "domain name" do
+      let(:fixture_name) { "gandi" }
+      let(:expected_values) do
+        {
+          iban: "LU960030878793070000",
+          number: "331",
+          date: "18/10/2017",
+          amount: -200.0,
+          debit: true,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "30940322",
+          movement_type: "domain_name"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
     end
 
     describe "hosting i3d" do
