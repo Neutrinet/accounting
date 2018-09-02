@@ -43,8 +43,8 @@ RSpec.shared_examples "a parsed movement row" do
 end
 
 RSpec.describe MovementRow do
-  context "rabobank movements in ing export" do
-    let(:csv_row) { csv_rows("rabobank_#{fixture_name}").first }
+  context "recordbank movements in ing export" do
+    let(:csv_row) { csv_rows("recordbank_#{fixture_name}").first }
     let(:movement) { MovementRow.new(csv_row) }
 
     describe "banking fee" do
