@@ -59,7 +59,7 @@ class MovementIdentifier
   end
 
   def gitoyen?
-    %w(FR76 1027 8060 3100 0204 5230 163).include?(movement_row.iban)
+    %w(FR7610278060310002045230163).include?(movement_row.iban)
   end
 
   def order?

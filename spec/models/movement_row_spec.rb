@@ -135,8 +135,23 @@ RSpec.describe MovementRow do
     describe "moniteur" do
     end
 
-    # TODO
     describe "network" do
+      let(:fixture_name) { "gitoyen" }
+      let(:expected_values) do
+        {
+          iban: "FR7610278060310002045230163",
+          number: "99",
+          date: "23/03/2018",
+          amount: -15.0,
+          debit: true,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "FA1803-0710",
+          movement_type: "network"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
     end
 
     # TODO
