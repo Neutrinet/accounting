@@ -154,8 +154,23 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
-    # TODO
     describe "hardware order member" do
+      let(:fixture_name) { "hardware_order_1" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456781212",
+          number: "98",
+          date: "21/03/2018",
+          amount: 6.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "cable SATA associe a commande ?122",
+          movement_type: "hardware_order_member"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
     end
 
     describe "vpn" do

@@ -2,6 +2,9 @@
 class MovementIdentifier
   attr_reader :movement_row
 
+  ORDER_REGEX = /commande|order|brique|cube|cable|câble|carte sd/i
+  VPN_REGEX = /cotisation|abonnement|redevance|vpn/i
+
   def self.type_for(movement_row)
     new(movement_row).run
   end
@@ -65,13 +68,14 @@ class MovementIdentifier
   def order?
     return if vpn?
 
-    movement_row.communication =~ /commande|order|brique|cube|cable|câble|carte sd/i
+    movement_row.communication =~ ORDER_REGEX
   end
 
   def vpn?
-    movement_row.communication =~ /cotisation|abonnement|redevance|vpn/i ||
-      movement_row.communication.nil? ||
-      movement_row.amount.between?(0.1, 12)
+    return true if movement_row.communication =~ VPN_REGEX
+    return false if movement_row.communication =~ ORDER_REGEX
+
+    movement_row.communication.nil? || movement_row.amount.between?(0.1, 12)
   end
 
   def domain?
