@@ -236,5 +236,26 @@ RSpec.describe MovementRow do
   end
 
   context "ing movements in ing export" do
+    let(:csv_row) { csv_rows("ing_#{fixture_name}").first }
+    let(:movement) { MovementRow.new(csv_row) }
+
+    describe "vpn" do
+      let(:fixture_name) { "vpn" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456781234",
+          number: "191",
+          date: "19/06/2018",
+          amount: 8.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "cotisation asbl + 1 mois de VPN Info personnelle: 20180619CEC101002598-003667",
+          movement_type: "vpn"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
   end
 end
