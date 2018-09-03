@@ -154,7 +154,7 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
-    describe "hardware order member" do
+    describe "hardware order member 1" do
       let(:fixture_name) { "hardware_order_1" }
       let(:expected_values) do
         {
@@ -166,6 +166,25 @@ RSpec.describe MovementRow do
           money_transaction: true,
           bank_communication: false,
           communication: "cable SATA associe a commande ?122",
+          movement_type: "hardware_order_member"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
+    describe "hardware order member 2" do
+      let(:fixture_name) { "hardware_order_2" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456789101",
+          number: "132",
+          date: "17/04/2018",
+          amount: 200.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "order .131",
           movement_type: "hardware_order_member"
         }
       end

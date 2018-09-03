@@ -2,7 +2,7 @@
 class MovementIdentifier
   attr_reader :movement_row
 
-  ORDER_REGEX = /commande|order|brique|cube|cable|câble|carte sd/i
+  ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd/i
   VPN_REGEX = /cotisation|abonnement|redevance|vpn/i
 
   def self.type_for(movement_row)
