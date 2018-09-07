@@ -257,5 +257,142 @@ RSpec.describe MovementRow do
 
       it_behaves_like "a parsed movement row"
     end
+
+    # describe "hardware order" do
+    #   let(:fixture_name) { "olimex" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "BG89FINV91501016150445",
+    #       number: "245",
+    #       date: "01/08/2017",
+    #       amount: -243.42,
+    #       debit: true,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: ".W-TB010817",
+    #       movement_type: "hardware_order"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    # describe "domain name" do
+    #   let(:fixture_name) { "gandi" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "LU960030878793070000",
+    #       number: "331",
+    #       date: "18/10/2017",
+    #       amount: -200.0,
+    #       debit: true,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "30940322",
+    #       movement_type: "domain_name"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    describe "hosting i3d" do
+      let(:fixture_name) { "i3d" }
+      let(:expected_values) do
+        {
+          iban: "NL51INGB0004490008",
+          number: "243",
+          date: "07/08/2018",
+          amount: -173.03,
+          debit: true,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "Client no.: K126687 invoice no.: F18-0100017375",
+          movement_type: "hosting"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
+    # describe "hardware order member 1" do
+    #   let(:fixture_name) { "hardware_order_1" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "BE12123456781212",
+    #       number: "98",
+    #       date: "21/03/2018",
+    #       amount: 6.0,
+    #       debit: false,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "cable SATA associe a commande ?122",
+    #       movement_type: "hardware_order_member"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    # describe "hardware order member 2" do
+    #   let(:fixture_name) { "hardware_order_2" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "BE12123456789101",
+    #       number: "132",
+    #       date: "17/04/2018",
+    #       amount: 200.0,
+    #       debit: false,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "order .131",
+    #       movement_type: "hardware_order_member"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    # describe "vpn" do
+    #   let(:fixture_name) { "vpn" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "BE52223123456789",
+    #       number: "106",
+    #       date: "03/04/2017",
+    #       amount: 10.0,
+    #       debit: false,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "Doe VPN",
+    #       movement_type: "vpn"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    # describe "vpn from abroad" do
+    #   let(:fixture_name) { "vpn_abroad" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "FR7612345678123456781234123",
+    #       number: "107",
+    #       date: "03/04/2017",
+    #       amount: 8.0,
+    #       debit: false,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "B12ADEB34FC5DFC",
+    #       movement_type: "vpn"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+
+    # # TODO
+    # describe "domain name member" do
+    # end
   end
 end

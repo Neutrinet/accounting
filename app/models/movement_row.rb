@@ -12,15 +12,18 @@ class MovementRow
   # end
 
   def number
-    row["Omzetnummer"] 
+    row["Omzetnummer"] || row["Numéro de mouvement"]
   end
 
   def date
-    row["Boekingsdatum"] 
+    row["Boekingsdatum"] || row["Date comptable"]
   end
 
   def amount
-    @amount ||= row["Bedrag"]&.gsub(",", ".").to_f
+    @amount ||= begin
+      column = row["Bedrag"] || row["Montant"]
+      column&.gsub(",", ".").to_f
+    end
   end
 
   def debit?
@@ -65,13 +68,16 @@ class MovementRow
   # big-ass field that contains most of the needed info such as IBAN,
   # communication, name, ... But of course, in an instructured way ...
   def details
-    @details ||= row["Detail van de omzet"]&.gsub(/(\s)+/, " ")&.encode("utf-8")
+    @details ||= begin
+      column = row["Detail van de omzet"] || row["Détails du mouvement"]
+      column&.gsub(/(\s)+/, " ")&.encode("utf-8")
+    end
   end
 
   # used by the bank for rows that are not money transaction but informational
   # messages like "a new card has been sent..."
   def bank_communication
-    row["Bericht"]
+    row["Bericht"] || row["Message"]
   end
 
   def inspect
