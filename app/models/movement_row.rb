@@ -43,11 +43,12 @@ class MovementRow
   end
 
   def iban
-    return unless details
+    return unless details || label
 
     @iban ||= begin
       matches = /(IBAN\:\s)(?<iban>[[:alnum:]]+)(\s)/.match(details) ||
-                /(Compte [[:alpha:]\s']*: )(?<iban>.+)(\sCode)/.match(details)
+                /(Compte [[:alpha:]\s']*: )(?<iban>.+)(\sCode)/.match(details) ||
+                /(.*\:.*-\s)(?<iban>[[:alnum:]]+)(.*)/.match(label)
       return unless matches
 
       matches["iban"].gsub(" ", "")
@@ -55,10 +56,11 @@ class MovementRow
   end
 
   def communication
-    return unless details
+    return unless details || label
 
     @communication ||= begin
-      matches = /(Communication : )(?<communication>.+)\Z/.match(details)
+      matches = /(Communication : )(?<communication>.+)\Z/.match(details) ||
+        /(Communication: )(?<communication>.+)\Z/.match(label)
       return unless matches
 
       matches["communication"].strip
@@ -90,5 +92,11 @@ class MovementRow
 
   def movement_type
     @movement_type ||= MovementIdentifier.type_for(self)
+  end
+
+  private
+
+  def label
+    row["Omschrijving"] || row["Libellés"]
   end
 end
