@@ -4,6 +4,7 @@ class MovementIdentifier
 
   ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd/i
   VPN_REGEX = /cotisation|abonnement|redevance|vpn/i
+  NEUTRINET_ACCOUNT_NUMBER = "652-8349784-09"
 
   def self.type_for(movement_row)
     new(movement_row).run
@@ -31,12 +32,16 @@ class MovementIdentifier
 
   private
 
+  def no_third_party_iban?
+    movement_row.iban.nil? || movement_row.iban == NEUTRINET_ACCOUNT_NUMBER
+  end
+
   def banking_fee?
-    !movement_row.iban && movement_row.debit?
+    no_third_party_iban? && movement_row.debit?
   end
 
   def interests?
-    !movement_row.iban && movement_row.credit?
+    no_third_party_iban? && movement_row.credit?
   end
 
   def bank_communication?

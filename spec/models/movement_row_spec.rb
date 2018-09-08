@@ -51,14 +51,14 @@ RSpec.describe MovementRow do
       let(:fixture_name) { "banking_fee" }
       let(:expected_values) do
         {
-          iban: nil,
+          iban: MovementIdentifier::NEUTRINET_ACCOUNT_NUMBER,
           number: "105",
           date: "03/04/2017",
           amount: -3.56,
           debit: true,
           money_transaction: true,
           bank_communication: false,
-          communication: nil,
+          communication: "Transaction Record Bank",
           movement_type: "banking_fee"
         }
       end
@@ -223,6 +223,25 @@ RSpec.describe MovementRow do
           money_transaction: true,
           bank_communication: false,
           communication: "Cotisation Foo",
+          movement_type: "vpn"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
+    describe "vpn no iban" do
+      let(:fixture_name) { "vpn_no_iban" }
+      let(:expected_values) do
+        {
+          iban: "123-1234567-12",
+          number: "2",
+          date: "16/09/2014",
+          amount: 40.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "Virement en votre faveur + 40,00 Cotisation Neutrinet Jane (Doe) Mar",
           movement_type: "vpn"
         }
       end

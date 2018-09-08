@@ -6,10 +6,9 @@ class MovementRow
     @row = row
   end
 
-  # not used, it's the old non-iban account format, not always there
-  # def account
-  #   row["Rekening tegenpartij"] 
-  # end
+  def legacy_account
+    row["Rekening tegenpartij"] || row["Compte partie adverse"]
+  end
 
   def number
     row["Omzetnummer"] || row["Numéro de mouvement"]
@@ -49,7 +48,7 @@ class MovementRow
       matches = /(IBAN\:\s)(?<iban>[[:alnum:]]+)(\s)/.match(details) ||
                 /(Compte [[:alpha:]\s']*:\s?)(?<iban>.+)(\sCode)/.match(details) ||
                 /(.*\:.*-\s)(?<iban>[[:alnum:]]+)(.*)/.match(label)
-      return unless matches
+      return legacy_account unless matches
 
       matches["iban"].gsub(" ", "")
     end
@@ -61,7 +60,7 @@ class MovementRow
     @communication ||= begin
       matches = /(Communication : )(?<communication>.+)\Z/.match(details) ||
         /(Communication: )(?<communication>.+)\Z/.match(label)
-      return unless matches
+      return label unless matches
 
       matches["communication"].strip
     end
@@ -97,6 +96,9 @@ class MovementRow
   private
 
   def label
-    row["Omschrijving"] || row["Libellés"]
+    @label ||= begin
+      column = row["Omschrijving"] || row["Libellés"]
+      column&.gsub(/(\s)+/, " ")&.strip
+    end
   end
 end
