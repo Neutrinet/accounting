@@ -41,7 +41,6 @@ RSpec.describe Movement, type: :model do
     expect_required_field(:number)
     expect_required_field(:date)
     expect_required_field(:amount)
-    expect_required_field(:iban)
     expect_required_field(:movement_type)
     expect_required_field(:raw)
   end

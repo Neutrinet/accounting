@@ -1,0 +1,13 @@
+<h1>Import Report</h1>
+
+<%= @nb_imported_movements %> have been imported.
+
+<h2>Errors (<%= @errors.count %>)</h2>
+
+<ul>
+<% @errors.each do |error| %>
+  <li>
+    <%= error.inspect %>
+  </li>
+<% end %>
+</ul>
