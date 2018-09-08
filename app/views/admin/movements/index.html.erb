@@ -1,0 +1,19 @@
+<h1>Movements (<%= @movements.count %>)</h1>
+
+<h2>Unknown (<%= @unknown_movements.count %>)</h2>
+<table>
+  <%= render partial: "headers" %>
+  <%= render partial: "movement", collection: @unknown_movements %>
+</table>
+
+<h2>No IBAN (<%= @no_iban_movements.count %>)</h2>
+<table>
+  <%= render partial: "headers" %>
+  <%= render partial: "movement", collection: @no_iban_movements %>
+</table>
+
+<h2>All</h2>
+<table>
+  <%= render partial: "headers" %>
+  <%= render partial: "movement", collection: @movements %>
+</table>

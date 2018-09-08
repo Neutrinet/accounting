@@ -47,7 +47,7 @@ class MovementRow
 
     @iban ||= begin
       matches = /(IBAN\:\s)(?<iban>[[:alnum:]]+)(\s)/.match(details) ||
-                /(Compte [[:alpha:]\s']*: )(?<iban>.+)(\sCode)/.match(details) ||
+                /(Compte [[:alpha:]\s']*:\s?)(?<iban>.+)(\sCode)/.match(details) ||
                 /(.*\:.*-\s)(?<iban>[[:alnum:]]+)(.*)/.match(label)
       return unless matches
 

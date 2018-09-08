@@ -1,6 +1,7 @@
 class Movement < ApplicationRecord
   validates_uniqueness_of :number, scope: :date
   validates_presence_of :number, :date, :amount, :movement_type, :raw
+  scope :unknown, -> { where(movement_type: "unknown") }
 
   def self.from_row(movement_row)
     create(
