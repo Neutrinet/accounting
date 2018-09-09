@@ -249,6 +249,25 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
+    describe "vpn virement en votre faveur" do
+      let(:fixture_name) { "vpn_virement_en_votre_faveur" }
+      let(:expected_values) do
+        {
+          iban: nil,
+          number: "158",
+          date: "22/09/2015",
+          amount: 9.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "Virement en votre faveur + 9,00 COTISATION OF JANE DOE",
+          movement_type: "vpn"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
     describe "vpn from abroad" do
       let(:fixture_name) { "vpn_abroad" }
       let(:expected_values) do

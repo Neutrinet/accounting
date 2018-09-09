@@ -41,6 +41,7 @@ class MovementIdentifier
   end
 
   def interests?
+    return false if movement_row.communication =~ VPN_REGEX
     no_third_party_iban? && movement_row.credit?
   end
 
