@@ -58,7 +58,11 @@ RSpec.describe MovementRow do
           debit: true,
           money_transaction: true,
           bank_communication: false,
-          communication: "Transaction Record Bank",
+          communication: "DECOMPTE D'INTERETS Compte arrêté : " \
+                         "BE52 1231 2345 6789 Période du : 01-01-2017 " \
+                         "au 01-04-2017 Référe...d'envoi à l'agence 0,00 " \
+                         "EUR Montant net du décompte d'intérêt: " \
+                         "-3,56 EUR  / Transaction Record Bank",
           movement_type: "banking_fee"
         }
       end

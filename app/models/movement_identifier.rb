@@ -2,8 +2,8 @@
 class MovementIdentifier
   attr_reader :movement_row
 
-  ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd/i
-  VPN_REGEX = /cotisation|abonnement|redevance|vpn/i
+  ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd|batterie|sata/i
+  VPN_REGEX = /cotisation|abonnement|redevance|vpn|don|donnation|contribution|adhesion|participation|soutien/i
   NEUTRINET_ACCOUNT_NUMBER = "652-8349784-09"
 
   def self.type_for(movement_row)
