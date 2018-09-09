@@ -60,7 +60,7 @@ class MovementRow
     @communication ||= begin
       matches = /(Communication : )(?<communication>.+)\Z/.match(details) ||
         /(Communication: )(?<communication>.+)\Z/.match(label)
-      return label unless matches
+      return [details, label].compact.join(" / ") unless matches
 
       matches["communication"].strip
     end
