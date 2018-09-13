@@ -1,15 +1,47 @@
-<!DOCTYPE html>
-<html>
+<%# <!DOCTYPE html> %>
+<%# <html> %>
+<%#   <head> %>
+<%#     <title>NeutrinetAccounting</title> %>
+<%#     <%= csrf_meta_tags %1> %>
+<%#     <%= csp_meta_tag %1> %>
+
+<%#     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %1> %>
+<%#     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %1> %>
+<%#   </head> %>
+
+<%#   <body> %>
+<%#     <%= yield %1> %>
+<%#   </body> %>
+<%# </html> %>
+
+<!doctype html>
+<html lang="en">
   <head>
-    <title>NeutrinetAccounting</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
   </head>
-
   <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Neutrinet Accounting</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= admin_movements_path %>">Movements<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_admin_imports_path %>">Imports</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
