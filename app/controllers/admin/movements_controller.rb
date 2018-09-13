@@ -1,4 +1,4 @@
-class Admin::MovementsController < ApplicationController
+class Admin::MovementsController < Admin::BaseController
   def index
     @movements = Movement.all
     @unknown_movements = Movement.unknown
