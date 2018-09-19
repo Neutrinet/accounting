@@ -1,5 +1,7 @@
 <tr>
-  <td><%= format_date(movement.date) %></td>
+  <td>
+    <%= link_to format_date(movement.date), edit_admin_movement_path(movement) %>
+  </td>
   <td><%= movement.number %></td>
   <td><%= movement.amount %></td>
   <td><%= movement.iban %></td>
