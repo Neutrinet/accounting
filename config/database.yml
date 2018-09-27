@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: neutrinetaccounting_development
+  database: neutrinet_accounting_development
   username: postgres
   host: localhost
   port: 5432
 
 test:
   <<: *default
-  database: neutrinetaccounting_test
+  database: neutrinet_accounting_test
   username: postgres
   host: localhost
   port: 5432
@@ -40,6 +40,6 @@ test:
 #
 production:
   <<: *default
-  database: NeutrinetAccounting_production
+  database: neutrinet_accounting_production
   username: NeutrinetAccounting
   password: <%= ENV['NEUTRINETACCOUNTING_DATABASE_PASSWORD'] %>

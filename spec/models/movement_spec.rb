@@ -37,12 +37,18 @@ RSpec.describe Movement, type: :model do
     expect(new_movement(date: date).save).to eql(false)
   end
 
-  it "has a required fields" do
+  it "has required fields" do
     expect_required_field(:number)
     expect_required_field(:date)
     expect_required_field(:amount)
     expect_required_field(:movement_type)
     expect_required_field(:raw)
+  end
+
+  it "validates the movement_type" do
+    expect do
+      new_movement(movement_type: "a-type-that-does-not-exist").save!
+    end.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   describe ".from_row" do

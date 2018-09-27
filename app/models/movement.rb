@@ -1,7 +1,27 @@
 class Movement < ApplicationRecord
+  ALLOWED_TYPES = {
+    banking_fee: "Frais bancaires",
+    interests: "Intérêts",
+    bank_communication: "Communication bancaire",
+    hardware_order: "Commande de briques",
+    domain_name: "Réservation de nom de domaine",
+    hosting: "Frais d'hébergement",
+    moniteur: "Frais Moniteur",
+    network: "Frais réseau",
+    hardware_order_member: "Achat de brique",
+    vpn: "Cotisation VPN",
+    domain_name_member: "Achat de nom de domaine",
+    unknown: "Inconnu"
+  }
+
   validates_uniqueness_of :number, scope: :date
   validates_presence_of :number, :date, :amount, :movement_type, :raw
+  validates_inclusion_of :movement_type, in: ALLOWED_TYPES.keys
   scope :unknown, -> { where(movement_type: "unknown") }
+
+  def self.movement_type_options
+    ALLOWED_TYPES.map { |k, v| [v, k] }
+  end
 
   def self.from_row(movement_row)
     create(

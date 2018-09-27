@@ -23,7 +23,11 @@
   </div>
   <div class="row">
     <label>Type</label>
-    <%= f.text_field :movement_type, class: "form-control", disabled: true %>
+    <%= select_tag(
+      :movement_type,
+      options_for_select(Movement.movement_type_options, @movement.movement_type),
+      class: "form-control"
+    )%>
   </div>
   <hr>
   <%= f.submit "Update", class: "btn btn-primary" %>
