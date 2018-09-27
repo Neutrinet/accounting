@@ -25,7 +25,7 @@ Things you may want to cover:
 
 ## TODO
 
-- unique login/password to access everything
+v unique login/password to access everything
 - list transactions by year
 - public accounting page by year
 - upload CSV

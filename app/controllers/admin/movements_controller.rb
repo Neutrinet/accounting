@@ -1,6 +1,8 @@
 class Admin::MovementsController < Admin::BaseController
+  helper_method :years, :year
+
   def index
-    @movements = Movement.all
+    @movements = Movement.for_year(year)
     @unknown_movements = Movement.unknown
     @no_iban_movements = Movement.where(iban: nil).where.not(movement_type: "vpn")
   end
@@ -18,5 +20,15 @@ class Admin::MovementsController < Admin::BaseController
 
   def update_params
     params.require(:movement).permit(:movement_type)  
+  end
+
+  def years
+    @years ||= Movement.existing_years.map(&:to_s)
+  end
+
+  def year
+    return params[:year] if years.include?(params[:year])
+    
+    years.first
   end
 end
