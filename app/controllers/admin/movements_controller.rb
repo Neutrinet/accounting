@@ -10,6 +10,13 @@ class Admin::MovementsController < Admin::BaseController
   end
 
   def update
+    Movement.find(params[:id]).update(update_params)
     redirect_to action: :index
+  end
+
+  private
+
+  def update_params
+    params.require(:movement).permit(:movement_type)  
   end
 end

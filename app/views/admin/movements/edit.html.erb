@@ -23,9 +23,10 @@
   </div>
   <div class="row">
     <label>Type</label>
-    <%= select_tag(
+    <%= f.select(
       :movement_type,
-      options_for_select(Movement.movement_type_options, @movement.movement_type),
+      Movement.movement_type_options,
+      {},
       class: "form-control"
     )%>
   </div>
