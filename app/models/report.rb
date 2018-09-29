@@ -1,10 +1,6 @@
 class Report
   attr_reader :year
 
-  def self.for(year)
-    new(year)
-  end
-
   def initialize(year)
     @year = year
   end

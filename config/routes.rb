@@ -4,4 +4,7 @@ Rails.application.routes.draw do
     resources :movements, only: [:index, :edit, :update]
     root to: "movements#index"
   end
+
+  resources :movements, only: [:index]
+  root to: "movements#index"
 end
