@@ -7,7 +7,7 @@
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <% years.each do |year| %>
-      <a class="dropdown-item" href="#"><%= year %></a>
+      <a class="dropdown-item" href="<%= admin_movements_path(year: year) %>"><%= year %></a>
     <% end %>
     </div>
   </div>

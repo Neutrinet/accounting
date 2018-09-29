@@ -3,8 +3,8 @@ class Admin::MovementsController < Admin::BaseController
 
   def index
     @movements = Movement.for_year(year)
-    @unknown_movements = Movement.unknown
-    @no_iban_movements = Movement.where(iban: nil).where.not(movement_type: "vpn")
+    @unknown_movements = Movement.for_year(year).unknown
+    @no_iban_movements = Movement.for_year(year).where(iban: nil).where.not(movement_type: "vpn")
   end
 
   def edit
