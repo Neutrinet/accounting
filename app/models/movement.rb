@@ -19,6 +19,7 @@ class Movement < ApplicationRecord
   validates_inclusion_of :movement_type, in: ALLOWED_TYPES.keys
   scope :unknown, -> { where(movement_type: "unknown") }
   scope :for_year, ->(year) { where("extract(year from date) = ?", year) }
+  scope :before_year, ->(year) { where("extract(year from date) < ?", year) }
   scope :for_movement_type, ->(movement_type) do
     return all unless movement_type
     where(movement_type: movement_type)

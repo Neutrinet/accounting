@@ -36,3 +36,4 @@ v list transactions by year
   - allow to edit transactions
   - make a difference between transactions created manually or by the import (a field in the DB)
   - generate reports for past years
+- add specs for movement scopes
