@@ -1,10 +1,8 @@
 class Admin::MovementsController < Admin::BaseController
-  helper_method :years, :year
+  helper_method :years, :year, :movement_types, :movement_type
 
   def index
-    @movements = Movement.for_year(year)
-    @unknown_movements = Movement.for_year(year).unknown
-    @no_iban_movements = Movement.for_year(year).where(iban: nil).where.not(movement_type: "vpn")
+    @movements = Movement.for_year(year).for_movement_type(movement_type)
   end
 
   def edit
@@ -30,5 +28,17 @@ class Admin::MovementsController < Admin::BaseController
     return params[:year] if years.include?(params[:year])
     
     years.first
+  end
+
+  def movement_types
+    @movement_types ||= Movement::ALLOWED_TYPES.merge(nil => "Tous les mouvements")
+  end
+
+  def valid_movement_key?
+    return movement_types.keys.include?(params[:movement_type])
+  end
+
+  def movement_type
+    valid_movement_key? ? params[:movement_type] : nil
   end
 end
