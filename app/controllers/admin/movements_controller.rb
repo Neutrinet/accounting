@@ -2,7 +2,7 @@ class Admin::MovementsController < Admin::BaseController
   helper_method :years, :year, :movement_types, :movement_type
 
   def index
-    @movements = Movement.for_year(year).for_movement_type(movement_type)
+    @movements = Movement.for_year(year).for_movement_type(movement_type).order(date: :desc, number: :desc)
   end
 
   def edit
