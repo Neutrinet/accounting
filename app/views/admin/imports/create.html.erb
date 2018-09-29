@@ -7,13 +7,17 @@
   <%= @nb_imported_movements %> movements have been imported.
 
   <% unless @errors.empty?  %>
-  <h3>Errors (<%= @errors.count %>)</h3>
-  <ul>
-    <% @errors.each do |error| %>
-      <li>
-        <%= error.inspect %>
-      </li>
-    <% end %>
-  </ul>
+    <hr>
+    <h3><%= @errors.count %> movements have not been imported</h3>
+    <ul>
+      <% @errors.each do |movement| %>
+        <li>
+          #<%= movement.number %>,
+          <%= format_date(movement.date) %>,
+          <%= movement.amount %>,
+          <%= movement.communication %> 
+        </li>
+      <% end %>
+    </ul>
 <% end %>
 </div>
