@@ -5,6 +5,7 @@ class Admin::BaseController < ApplicationController
 
   def ensure_admin!
     authenticate_or_request_with_http_basic do |l, p|
+      session[:admin] = true
       l == login && p == password
     end
   end

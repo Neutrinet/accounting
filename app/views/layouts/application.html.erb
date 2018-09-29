@@ -16,17 +16,25 @@
   </head>
   <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Neutrinet Accounting</a>
+      <a class="navbar-brand" href="<%= root_path %>">Neutrinet Accounting</a>
 
       <div class="collapse navbar-collapse" id="navbarsExample02">
+        <% if session[:admin] %>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= admin_movements_path %>">Movements<span class="sr-only">(current)</span></a>
+          <%
+              active = controller.is_a?(Admin::MovementsController) ? "active" : ""
+          %>
+          <li class="nav-item <%= active %>">
+            <a class="nav-link" href="<%= admin_movements_path %>">Movements</a>
           </li>
-          <li class="nav-item">
+          <%
+              active = controller.is_a?(Admin::ImportsController) ? "active" : ""
+          %>
+          <li class="nav-item <%= active %>">
             <a class="nav-link" href="<%= new_admin_imports_path %>">Imports</a>
           </li>
         </ul>
+        <% end %>
       </div>
     </nav>
 

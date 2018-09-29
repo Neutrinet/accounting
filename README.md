@@ -28,8 +28,8 @@ Things you may want to cover:
 v unique login/password to access everything
 v list transactions by year
 v public accounting page by year
-- add new movement
-- do something with the nav header on the public page
+v add new movement
+v do something with the nav header on the public page
 - do a print CSS for pdf reporting
 - upload CSV
   - upload form
