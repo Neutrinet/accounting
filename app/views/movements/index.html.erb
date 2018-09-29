@@ -13,12 +13,22 @@
   </div>
 </div>
 
-current balance: <%= @report.current_balance %>
-<br>
-previous balance: <%= @report.previous_balance %>
-<hr>
+
 
 <table class="table table-striped table-sm">
   <%= render partial: "headers" %>
   <%= render partial: "movement", collection: @report.movements %>
+</table>
+
+<hr>
+
+<table class="table table-sm d-flex">
+  <tr>
+    <td class="text-right font-weight-bold">Solde au 31/12/<%= year %>:</td>
+    <td><%= @report.current_balance %></td>
+  </tr>
+  <tr>
+    <td class="text-right font-weight-bold">Solde exercice précédent:</td>
+    <td><%= @report.previous_balance %></td>
+  </tr>
 </table>
