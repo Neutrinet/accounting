@@ -31,6 +31,7 @@ v public accounting page by year
 v add new movement
 v do something with the nav header on the public page
 - do a print CSS for pdf reporting
+- add a "label" field for movements, and a new "custom" movement_type. the "label" will be displayed when the "custom" type is chosen
 - upload CSV
   - upload form
   - create a "upload" db entry and fire up a bg job
