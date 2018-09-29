@@ -7,6 +7,20 @@ class Admin::MovementsController < Admin::BaseController
                          .order(date: :desc, number: :desc)
   end
 
+  def new
+    @movement = Movement.new
+  end
+
+  def create
+    @movement = Movement.new(create_params)
+    @movement.raw = "manual"
+    if @movement.save
+      redirect_to admin_movements_path
+    else
+      render action: "new"
+    end
+  end
+
   def edit
     @movement = Movement.find(params[:id])
   end
@@ -16,10 +30,26 @@ class Admin::MovementsController < Admin::BaseController
     redirect_to action: :index
   end
 
+  def destroy
+    Movement.destroy(params[:id])
+    redirect_to action: :index
+  end
+
   private
 
+  def create_params
+    params.require(:movement).permit(
+      :number,
+      :date,
+      :amount,
+      :iban,
+      :communication,
+      :movement_type
+    )
+  end
+
   def update_params
-    params.require(:movement).permit(:movement_type)  
+    params.require(:movement).permit(:movement_type)
   end
 
   def years

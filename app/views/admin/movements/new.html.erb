@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2>New Movement</h2>
+</div>
+
+<%= form_for :movement, url: admin_movements_path, method: :post do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+  <hr>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+  <a href="<%= admin_movements_path %>" class="btn btn-secondary">Cancel</a>
+<% end %>
