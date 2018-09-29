@@ -1,16 +1,21 @@
 require "csv"
 
 class Admin::ImportsController < Admin::BaseController
-  def new; end
+  before_action :ensure_csv_file, only: [:create]
 
   def create
-    Movement.delete_all
     nb_movements = Movement.count
     @errors = parse_csv
     @nb_imported_movements = Movement.count - nb_movements
   end
 
   private
+
+  def ensure_csv_file
+    return true if params[:csv_file]
+
+    redirect_to action: :new
+  end
 
   def parse_csv
     errors = []

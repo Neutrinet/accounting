@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h2>Movements (<%= @movements.count %>)</h2>
+  <div class="d-flex">
   <div class="dropdown">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= year %>
@@ -12,7 +13,7 @@
     </div>
   </div>
 
-  <div class="dropdown">
+  <div class="dropdown ml-2">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuMovementType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= movement_types[movement_type] %>
     </a>
@@ -22,6 +23,7 @@
       <a class="dropdown-item" href="<%= admin_movements_path(movement_type: k, year: year) %>"><%= v %></a>
     <% end %>
     </div>
+  </div>
   </div>
 </div>
 

@@ -26,7 +26,7 @@ Things you may want to cover:
 ## TODO
 
 v unique login/password to access everything
-- list transactions by year
+v list transactions by year
 - public accounting page by year
 - upload CSV
   - upload form
@@ -36,5 +36,3 @@ v unique login/password to access everything
   - allow to edit transactions
   - make a difference between transactions created manually or by the import (a field in the DB)
   - generate reports for past years
-
-
