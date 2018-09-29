@@ -27,7 +27,9 @@ Things you may want to cover:
 
 v unique login/password to access everything
 v list transactions by year
-- public accounting page by year
+v public accounting page by year
+- do something with the nav header on the public page
+- do a print CSS for pdf reporting
 - upload CSV
   - upload form
   - create a "upload" db entry and fire up a bg job
@@ -37,3 +39,9 @@ v list transactions by year
   - make a difference between transactions created manually or by the import (a field in the DB)
   - generate reports for past years
 - add specs for movement scopes
+- fix failing spec on csv parsing
+- documentation:
+  - how to add new type
+  - setup dev env
+  - deploy to production
+  - run tests
