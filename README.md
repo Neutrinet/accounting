@@ -30,7 +30,7 @@ v list transactions by year
 v public accounting page by year
 v add new movement
 v do something with the nav header on the public page
-- do a print CSS for pdf reporting
+v do a print CSS for pdf reporting
 v add a "label" field for movements, and a new "custom" movement_type. the "label" will be displayed when the "custom" type is chosen
 - upload CSV
   - upload form

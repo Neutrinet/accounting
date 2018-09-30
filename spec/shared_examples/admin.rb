@@ -7,30 +7,6 @@ RSpec.shared_examples "a protected resource" do
 
       expect(response.status).to eql(401)
     end
-
-    it "post responds with 401" do
-      post url, headers: headers
-
-      expect(response.status).to eql(401)
-    end
-
-    it "patch responds with 401" do
-      patch url + "/id", headers: headers
-
-      expect(response.status).to eql(401)
-    end
-
-    it "put responds with 401" do
-      put url + "/id", headers: headers
-
-      expect(response.status).to eql(401)
-    end
-
-    it "delete responds with 401" do
-      delete url + "/id", headers: headers
-
-      expect(response.status).to eql(401)
-    end
   end
 
   context "when login/password are provided" do

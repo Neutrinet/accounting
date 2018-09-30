@@ -4,7 +4,7 @@ RSpec.describe Report do
   let(:year) { 2018 }
   let(:previous_year) { year - 1 }
   let(:next_year) { year + 1 }
-  let(:report) { Report.for(year) }
+  let(:report) { Report.new(year) }
 
   before do
     new_movement(date: "#{next_year}-01-01", amount: 20.0).save
