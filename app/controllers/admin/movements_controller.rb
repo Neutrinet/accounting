@@ -44,12 +44,13 @@ class Admin::MovementsController < Admin::BaseController
       :amount,
       :iban,
       :communication,
-      :movement_type
+      :movement_type,
+      :custom_label
     )
   end
 
   def update_params
-    params.require(:movement).permit(:movement_type)
+    params.require(:movement).permit(:movement_type, :custom_label)
   end
 
   def years

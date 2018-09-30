@@ -11,7 +11,8 @@ class Movement < ApplicationRecord
     "hardware_order_member" =>  "Achat de brique",
     "vpn" =>  "Cotisation VPN",
     "domain_name_member" =>  "Achat de nom de domaine",
-    "unknown" =>  "Inconnu"
+    "unknown" =>  "Inconnu",
+    "custom" => "Custom Label"
   }
 
   validates_uniqueness_of :number, scope: :date
@@ -43,5 +44,11 @@ class Movement < ApplicationRecord
 
   def self.existing_years
     pluck(Arel.sql("distinct(extract(year from date))")).map(&:to_i)
+  end
+
+  def label
+    return custom_label if movement_type == "custom" 
+
+    ALLOWED_TYPES[movement_type]
   end
 end
