@@ -2,7 +2,7 @@ RSpec.shared_examples "a protected resource" do
   context "when no login/passwrd are provided" do
     let(:headers) { {} }
 
-    it "responds with 401" do
+    it "get responds with 401" do
       get url, headers: headers
 
       expect(response.status).to eql(401)

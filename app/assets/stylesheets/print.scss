@@ -1,0 +1,17 @@
+@page {
+  size: A4;
+  // margin: 0;
+  // padding: 3em 2em 3em 2em;
+}
+
+.dropdown {
+  display: none;
+}
+
+#filters.d-flex {
+  display: none !important;
+}
+
+#print-header {
+  display: block;
+}

@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="filters">
+  <h2><%= year %></h2>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= year %>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <% years.each do |year| %>
+      <a class="dropdown-item" href="<%= movements_path(year: year) %>"><%= year %></a>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="print-header">
+  NEUTRINET asbl<br>
+  31 rue de Nieuwenhove<br>
+  1180 Uccle<br>
+  N° entreprise: 0835.033.012<br>
+  Email: contact@neutrinet.be
+  <hr>
+  <h2>Bilan financier du 01/01/<%= year %> au 31/12/<%= year %></h2>
+  <hr>
+</div>
+
+
+<table class="table table-striped table-sm">
+  <%= render partial: "headers" %>
+  <%= render partial: "movement", collection: @report.movements %>
+</table>
+
+<hr>
+
+<table class="table table-sm d-flex">
+  <tr>
+    <td class="text-right font-weight-bold">Solde au 31/12/<%= year %>:</td>
+    <td><%= @report.current_balance %></td>
+  </tr>
+  <tr>
+    <td class="text-right font-weight-bold">Solde exercice précédent:</td>
+    <td><%= @report.previous_balance %></td>
+  </tr>
+</table>

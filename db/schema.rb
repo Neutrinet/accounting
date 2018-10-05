@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_08_124243) do
+ActiveRecord::Schema.define(version: 2018_09_30_061508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2018_09_08_124243) do
     t.text "raw", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "custom_label"
+    t.index ["movement_type"], name: "index_movements_on_movement_type"
     t.index ["number", "date"], name: "index_movements_on_number_and_date", unique: true
   end
 

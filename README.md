@@ -34,9 +34,13 @@
 
 ## TODO
 
-- unique login/password to access everything
-- list transactions by year
-- public accounting page by year
+v unique login/password to access everything
+v list transactions by year
+v public accounting page by year
+v add new movement
+v do something with the nav header on the public page
+v do a print CSS for pdf reporting
+v add a "label" field for movements, and a new "custom" movement_type. the "label" will be displayed when the "custom" type is chosen
 - upload CSV
   - upload form
   - create a "upload" db entry and fire up a bg job
@@ -46,4 +50,10 @@
   - make a difference between transactions created manually or by the import (a field in the DB)
   - generate reports for past years
 - configure travis
-
+- add specs for movement scopes
+- fix failing spec on csv parsing
+- documentation:
+  - how to add new type
+  - setup dev env
+  - deploy to production
+  - run tests

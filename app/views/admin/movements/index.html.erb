@@ -1,18 +1,36 @@
-<h1>Movements (<%= @movements.count %>)</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2>Movements (<%= @movements.count %>)</h2>
+  <div class="d-flex">
+    <div class="btn-group mr-2">
+      <a href="<%= new_admin_movement_path %>" class="btn btn-primary">New</a>
+    </div>
 
-<h2>Unknown (<%= @unknown_movements.count %>)</h2>
-<table class="table table-striped table-sm">
-  <%= render partial: "headers" %>
-  <%= render partial: "movement", collection: @unknown_movements %>
-</table>
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= year %>
+      </a>
 
-<h2>No IBAN (<%= @no_iban_movements.count %>)</h2>
-<table class="table table-striped table-sm">
-  <%= render partial: "headers" %>
-  <%= render partial: "movement", collection: @no_iban_movements %>
-</table>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% years.each do |year| %>
+          <a class="dropdown-item" href="<%= admin_movements_path(year: year, movement_type: movement_type) %>"><%= year %></a>
+        <% end %>
+      </div>
+    </div>
 
-<h2>All</h2>
+    <div class="dropdown ml-2">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuMovementType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= movement_types[movement_type] %>
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuMovementType">
+        <% movement_types.each do |k, v| %>
+          <a class="dropdown-item" href="<%= admin_movements_path(movement_type: k, year: year) %>"><%= v %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <table class="table table-striped table-sm">
   <%= render partial: "headers" %>
   <%= render partial: "movement", collection: @movements %>

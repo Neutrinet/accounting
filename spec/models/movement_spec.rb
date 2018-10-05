@@ -1,18 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Movement, type: :model do
-  def new_movement(args = {})
-    Movement.new(
-      number: args.fetch(:number, "123"),
-      date: args.fetch(:date, Time.zone.now),
-      amount: args.fetch(:amount, 12.34),
-      iban: args.fetch(:iban, "BE12123456781234"),
-      communication: args.fetch(:communication, "This is a communication"),
-      movement_type: args.fetch(:movement_type, "unknown"),
-      raw: args.fetch(:raw, "the raw CSV row")
-    )
-  end
-
   def expect_required_field(field_name)
     movement = new_movement(field_name => nil)
     expect do
@@ -37,12 +25,18 @@ RSpec.describe Movement, type: :model do
     expect(new_movement(date: date).save).to eql(false)
   end
 
-  it "has a required fields" do
+  it "has required fields" do
     expect_required_field(:number)
     expect_required_field(:date)
     expect_required_field(:amount)
     expect_required_field(:movement_type)
     expect_required_field(:raw)
+  end
+
+  it "validates the movement_type" do
+    expect do
+      new_movement(movement_type: "a-type-that-does-not-exist").save!
+    end.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   describe ".from_row" do
