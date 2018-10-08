@@ -65,7 +65,7 @@ v add a "label" field for movements, and a new "custom" movement_type. the "labe
   - generate reports for past years
 - configure travis
 - add specs for movement scopes
-- fix failing spec on csv parsing
+v fix failing spec on csv parsing
 - documentation:
   - how to add new type
   - setup dev env

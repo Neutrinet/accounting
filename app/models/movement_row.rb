@@ -71,7 +71,7 @@ class MovementRow
   def details
     @details ||= begin
       column = row["Detail van de omzet"] || row["Détails du mouvement"]
-      column&.gsub(/(\s)+/, " ")&.encode("utf-8")
+      column&.gsub(/(\s)+/, " ")&.encode("utf-8")&.strip
     end
   end
 
