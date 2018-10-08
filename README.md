@@ -8,15 +8,29 @@
 
 ## Setup locally by Installing Ruby and Postgres
 
+### Needed packages
+
+- `$ apt-get install git autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nodejs`
+- `$ sudo apt-get install -t stretch-backports nodejs` (a recent version of node is needed)
+
 ### Install Ruby
 
 - install `rbenv`: [follow those instructions](https://github.com/rbenv/rbenv#basic-github-checkout)
 - install `ruby-build`: [follow those instructions](https://github.com/rbenv/ruby-build#installation) (install "As an rbenv plugin")
 - install Ruby 2.5.1: `$ rbenv install 2.5.1`
+- set Ruby 2.5.1 as the default version: `$ rbenv global 2.5.1`
+- test it worked: `$ ruby -v`
 
 ### Install Postgres
 
-- `$ sudo apt-get install postgres`
+- `$ sudo apt-get install postgresql libpq-dev`
+- change default user's password:
+
+```
+$ sudo -u postgres psql postgres
+# alter user postgres with password 'postgres';
+# \q
+```
 
 ### Setup
 
