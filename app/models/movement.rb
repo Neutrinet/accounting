@@ -43,7 +43,8 @@ class Movement < ApplicationRecord
   end
 
   def self.existing_years
-    pluck(Arel.sql("distinct(extract(year from date))")).map(&:to_i)
+    pluck(Arel.sql("distinct(extract(year from date))")).sort { |a, b| b <=> a }
+                                                        .map(&:to_i)
   end
 
   def label
