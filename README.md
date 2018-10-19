@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Neutrinet/accounting.svg?branch=master)](https://travis-ci.org/Neutrinet/accounting)
+
 # README
 
 - [Setup locally](#setup-locally) (2 options):
