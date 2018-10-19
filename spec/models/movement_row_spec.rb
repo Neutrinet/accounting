@@ -391,6 +391,29 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
+    # -------------------------------------------------------------------------
+    # begin example spec
+    # describe "my new transaction" do
+    #   let(:fixture_name) { "my_new_transaction" }
+    #   let(:expected_values) do
+    #     {
+    #       iban: "NL51INGB0004490008",
+    #       number: "243",
+    #       date: "07/08/2018",
+    #       amount: -173.03,
+    #       debit: true,
+    #       money_transaction: true,
+    #       bank_communication: false,
+    #       communication: "Client no.: K126687 invoice no.: F18-0100017375",
+    #       movement_type: "hosting"
+    #     }
+    #   end
+
+    #   it_behaves_like "a parsed movement row"
+    # end
+    # end example spec
+    # -------------------------------------------------------------------------
+
     # describe "hardware order member 1" do
     #   let(:fixture_name) { "hardware_order_1" }
     #   let(:expected_values) do

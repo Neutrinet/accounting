@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export RACK_ENV=test
+export RAILS_ENV=test
+
+bundle exec rails db:migrate
+bundle exec rspec spec
