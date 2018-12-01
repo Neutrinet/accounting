@@ -42,6 +42,6 @@ test:
 #
 production:
   <<: *default
-  database: neutrinet_accounting_production
-  username: NeutrinetAccounting
+  database: accounting_production
+  username: accounting
   password: <%= ENV['NEUTRINETACCOUNTING_DATABASE_PASSWORD'] %>
