@@ -161,21 +161,3 @@ class MovementRow
     @movement_type ||= MovementIdentifier.type_for(self)
   end
 end
-
-unknowns = []
-CSV.foreach("../ing.csv", encoding: "ISO-8859-1", col_sep: ";", headers: true) do |row|
-  movement = MovementRow.new(row)
-  next if movement.amount == 0.0
-
-  if movement.movement_type == "unknown"
-    unknowns << movement
-    next
-  end
-
-  puts "#{movement.movement_type}: #{movement.date}-#{movement.number} €#{movement.amount} - #{movement.iban} - #{movement.communication}"
-end
-
-puts "Unknowns:"
-unknowns.each do |movement|
-  puts "#{movement.date}-#{movement.number} €#{movement.amount} - #{movement.iban} - #{movement.communication}"
-end
