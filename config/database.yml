@@ -44,4 +44,5 @@ production:
   <<: *default
   database: accounting_production
   username: accounting
+  host: localhost
   password: <%= ENV['NEUTRINETACCOUNTING_DATABASE_PASSWORD'] %>
