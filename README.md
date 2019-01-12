@@ -25,6 +25,13 @@
 - test it worked: `$ ruby -v`
 - install Bundler: `$ gem install bundler -v 1.17.3`
 
+#### Install Nodejs
+
+- check if you have a nodejs version >= 8: `$ nodejs -v`
+- if you're on a Debian-like system and have an old version installed, try to install it from the backports repository. If you are using `stretch`, edit `/etc/apt/sources.list`, add this line in at the end of the file: `deb http://http.debian.net/debian stretch-backports main`, save and exit
+- update your sources and install node from backports: `$ apt-get update && apt-get install nodejs -t stretch-backports`
+- check your nodejs version: `$ nodejs -v`
+
 #### Install Postgres
 
 - `$ sudo apt-get install postgresql libpq-dev`
