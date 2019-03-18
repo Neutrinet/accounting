@@ -20,8 +20,8 @@
 
 - install `rbenv`: [follow those instructions](https://github.com/rbenv/rbenv#basic-github-checkout)
 - install `ruby-build`: [follow those instructions](https://github.com/rbenv/ruby-build#installation) (install "As an rbenv plugin")
-- install Ruby 2.5.3: `$ rbenv install 2.5.3`
-- set Ruby 2.5.3 as the default version: `$ rbenv global 2.5.3`
+- install Ruby 2.6.2: `$ rbenv install 2.6.2`
+- set the default version for Ruby: `$ rbenv global 2.6.2`
 - test it worked: `$ ruby -v`
 - install Bundler: `$ gem install bundler -v 1.17.3`
 
