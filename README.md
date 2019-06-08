@@ -20,10 +20,10 @@
 
 - install `rbenv`: [follow those instructions](https://github.com/rbenv/rbenv#basic-github-checkout)
 - install `ruby-build`: [follow those instructions](https://github.com/rbenv/ruby-build#installation) (install "As an rbenv plugin")
-- install Ruby 2.6.2: `$ rbenv install 2.6.2`
-- set the default version for Ruby: `$ rbenv global 2.6.2`
+- install Ruby: `$ rbenv install 2.6.3`
+- set the default version for Ruby: `$ rbenv global 2.6.3`
 - test it worked: `$ ruby -v`
-- install Bundler: `$ gem install bundler -v 1.17.3`
+- install Bundler: `$ gem install bundler`
 
 #### Install Nodejs
 
@@ -45,7 +45,7 @@ $ sudo -u postgres psql postgres
 
 #### Setup
 
-- clone the app: `git clone xxx && cd yyy` 
+- clone the app: `git clone https://github.com/Neutrinet/accounting.git && cd accounting` 
 - run the setup script: `bin/setup`
 
 #### Run the tests
@@ -75,7 +75,6 @@ If a new recurring type of transaction shows up and you want the app to automati
 
 ## TODO
 
-- configure travis
 - add specs for movement scopes
 - documentation:
   - deploy to production
