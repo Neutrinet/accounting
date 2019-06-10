@@ -6,5 +6,5 @@
   <td><%= movement.amount %></td>
   <td><%= movement.iban %></td>
   <td><%= movement.label %></td>
-  <td><%= movement.communication %></td>
+  <td><%= truncate(movement.communication, length: 200) %></td>
 </tr>
