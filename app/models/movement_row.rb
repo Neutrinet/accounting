@@ -3,6 +3,7 @@ class MovementRow
   attr_reader :row
 
   def initialize(row)
+    Rails.logger.info(row.to_h)
     @row = row
   end
 
