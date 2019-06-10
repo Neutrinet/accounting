@@ -37,7 +37,8 @@ class MovementIdentifier
   end
 
   def banking_fee?
-    no_third_party_iban? && movement_row.debit?
+    return false unless movement_row.debit?
+    no_third_party_iban? || movement_row.communication&.include?("Décompte de frais")
   end
 
   def interests?
@@ -79,8 +80,8 @@ class MovementIdentifier
   end
 
   def vpn?
-    return true if movement_row.communication =~ VPN_REGEX
-    return false if movement_row.communication =~ ORDER_REGEX
+    return true if movement_row.credit? && movement_row.communication =~ VPN_REGEX
+    return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX
 
     movement_row.communication.nil? || movement_row.amount.between?(0.1, 12)
   end

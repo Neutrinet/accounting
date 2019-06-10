@@ -391,6 +391,25 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
+    describe "banking fee" do
+      let(:fixture_name) { "banking_fee" }
+      let(:expected_values) do
+        {
+          iban: "BE45310915602789",
+          number: "2",
+          date: "02/01/2019",
+          amount: -160.38,
+          debit: true,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "FACTURE n° 2018/01/001317788 du 31/12/2018 ING Belgique SA - Avenue Marnix 24, B-1000 Bruxelles TVA BE 0403.200.393 - BIC (SWIFT): BBRUBEBB - IBAN: BE45 3109 1560 2789 NEUTRINET ASBL RUE DE NIEUWENHOVE 31, B-1180 BRUXELLES TVA BE 0835.033.012 Décompte de frais au 31/12/2018 n° 90189126 Compte Entreprise ING Plus BE52 6528 3497 8409 EUR Compte à vue BE52 6528 3497 8409 EUR Opérations au-delà du forfait + 0,0000 EUR (1) Port et frais relatifs au compte - 1,6800 EUR (7) Période du 01/01/2019 au 31/12/2019 Frais de tenue de compte - 44,0000 EUR (7) Forfait annuel comprenant 12 opérations de débit manuelles, un nombre illimité d'opérations électroniques, l'accès à Self'Bank, Phone'Bank et Business'Bank, 2 mandataires pour la gestion du compte, et une carte de paiement ING avec le Service de paiement et de retrait en Belgique et en Europe - 70,0000 EUR (1) Carte de paiement ING 6703-9309-3500-3201 Période du 01/01/2019 au 31/12/2019 Cotisation annuelle pour le service de paiement et de retrait en Belgique et en Europe + 0,0000 EUR (1) Carte de paiement ING 6703-9309-3500-3202 Période du 01/01/2019 au 31/12/2019 Cotisation annuelle pour le service de paiement et de retrait en Belgique et en Europe - 8,2645 EUR (1) Carte de paiement ING 6703-9309-3500-3203 Période du 01/01/2019 au 31/12/2019 Cotisation annuelle pour le service de paiement et de retrait en Belgique et en Europe - 8,2645 EUR (1) Carte de paiement ING 6703-3032-6661-2701 Période du 01/01/2019 au 31/12/2019 Cotisation annuelle pour le service de paiement et de retrait en Belgique et en Europe - 8,2645 EUR (1) -------------------------------------------------- TVA 21 % sur : - 94,7935 (1) - 19,91 EUR Non soumis à la TVA : - 45,6800 (7) Exempté de TVA : art.44 par.3 7°, C. TVA BE Total au débit du compte BE52 6528 3497 8409 : - 160,38 EUR / Décompte de frais n° 90189126 Pièce justificative en annexe",
+          movement_type: "banking_fee"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
     # -------------------------------------------------------------------------
     # begin example spec
     # describe "my new transaction" do
