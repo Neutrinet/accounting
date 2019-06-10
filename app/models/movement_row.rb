@@ -15,10 +15,6 @@ class MovementRow
   end
 
   def date
-    Rails.logger.info(
-      date_comptable: row["Date comptable"],
-      bis: row.to_h["Date comptable"]
-    )
     row["Boekingsdatum"] || row["Date comptable"]
   end
 
