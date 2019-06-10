@@ -73,8 +73,7 @@ If a new recurring type of transaction shows up and you want the app to automati
 - run the specs (see above), they should fail
 - add a method in [app/models/movement_identifier.rb](app/models/movement_identifier.rb) to detect your new transaction type. Run the tests, they should all pass.
 
-## TODO
+## Documentation
 
-- add specs for movement scopes
-- documentation:
-  - deploy to production
+Here's how to use the tool:
+https://wiki.neutrinet.be/administration/comptabilit
