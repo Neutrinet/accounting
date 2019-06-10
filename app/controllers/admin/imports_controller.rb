@@ -20,6 +20,7 @@ class Admin::ImportsController < Admin::BaseController
   def parse_csv
     errors = []
     CSV.foreach(csv_file.path, encoding: "ISO-8859-1", col_sep: ";", headers: true) do |row|
+      Rails.logger.info(row.to_h.merge(csv_row: true)) 
       movement_row = MovementRow.new(row)
       movement = Movement.from_row(movement_row)
       errors << movement unless movement.persisted?
