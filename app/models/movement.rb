@@ -31,6 +31,12 @@ class Movement < ApplicationRecord
   end
 
   def self.from_row(movement_row)
+    Rails.logger.info(
+      from_row: true,
+      number: movement_row.number,
+      date: movement_row.date,
+      amount: movement_row.amount
+    )
     create(
       number: movement_row.number,
       date: movement_row.date,
