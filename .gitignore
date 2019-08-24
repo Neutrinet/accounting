@@ -28,6 +28,7 @@
 
 !config/database.yml
 !config/storage.yml
+!config/webpacker.yml
 
 /public/packs
 /public/packs-test
