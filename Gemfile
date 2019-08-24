@@ -15,6 +15,7 @@ gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'sentry-raven'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
