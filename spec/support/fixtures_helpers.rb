@@ -5,7 +5,7 @@ module FixturesHelpers
     path = file_fixture("movements/#{name}.csv")
     rows = []
     options = { col_sep: ";", headers: true }
-    CSV.foreach(path, options) do |row|
+    CSV.foreach(path, **options) do |row|
       rows << row
     end
     rows
