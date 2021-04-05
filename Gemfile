@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.0.0'
 
 gem 'rails', '~> 6.0'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.2'
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
@@ -18,10 +18,10 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', '~> 4.0'
 end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '~> 3.3'
 end
