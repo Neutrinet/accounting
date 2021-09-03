@@ -31,11 +31,11 @@ RSpec.describe Report do
       before do
         new_movement(date: "#{year}-01-01", amount: 100.0).save
         new_movement(date: "#{year}-06-01", amount: -50.0).save
-        new_movement(date: "#{year}-12-31", amount: 20.0).save
+        new_movement(date: "#{year}-12-31", amount: 20.125).save
       end
 
       it "has a current blance" do
-        expect(report.current_balance).to eql(70.0)
+        expect(report.current_balance).to eql(70.13)
       end
 
       it "has a list of movements" do
@@ -48,16 +48,16 @@ RSpec.describe Report do
     before do
       new_movement(date: "#{previous_year}-01-01", amount: 18.0).save
       new_movement(date: "#{previous_year}-06-01", amount: -5.0).save
-      new_movement(date: "#{previous_year}-12-31", amount: 2.0).save
+      new_movement(date: "#{previous_year}-12-31", amount: 2.123).save
     end
 
     it "has a previous balance" do
-      expect(report.previous_balance).to eql(15.0)
+      expect(report.previous_balance).to eql(15.12)
     end
 
     context "when there are no movement for the year" do
       it "has a current balance" do
-        expect(report.current_balance).to eql(15.0)
+        expect(report.current_balance).to eql(15.12)
       end
 
       it "has an empty list of movements" do
@@ -73,7 +73,7 @@ RSpec.describe Report do
       end
 
       it "has a current blance" do
-        expect(report.current_balance).to eql(85.0)
+        expect(report.current_balance).to eql(85.12)
       end
 
       it "has a list of movements" do
