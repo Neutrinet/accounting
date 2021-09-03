@@ -6,11 +6,11 @@ class Report
   end
 
   def previous_balance
-    @previous_balance ||= previous_movements.sum(:amount) 
+    @previous_balance ||= (previous_movements.sum(:amount)).round(2)
   end
 
   def current_balance
-    @current_balance ||= previous_balance + movements.sum(:amount)
+    @current_balance ||= (previous_balance + movements.sum(:amount)).round(2)
   end
 
   def movements
