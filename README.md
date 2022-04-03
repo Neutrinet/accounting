@@ -75,5 +75,5 @@ If a new recurring type of transaction shows up and you want the app to automati
 
 ## Documentation
 
-Here's how to use the tool:
-https://wiki.neutrinet.be/administration/comptabilit
+Here's how to use the tool (french):
+https://wiki.neutrinet.be/fr/administration/accounting-tool
