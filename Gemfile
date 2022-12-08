@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 5.2'
 gem 'jquery-rails'
 gem 'sentry-raven'
 gem 'webpacker'
