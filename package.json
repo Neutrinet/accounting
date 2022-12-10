@@ -2,7 +2,10 @@
   "name": "NeutrinetAccounting",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.7"
+    "@rails/webpacker": "5.1.1"
+  },
+  "engines": {
+    "node": "14.X"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.8.0"

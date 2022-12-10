@@ -1,24 +1,24 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h2>Movements (<%= @movements.count %>)</h2>
   <div class="d-flex">
-    <div class="btn-group mr-2">
+    <div class="btn-group me-2">
       <a href="<%= new_admin_movement_path %>" class="btn btn-primary">New</a>
     </div>
 
-    <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdowni me-1">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= year %>
       </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <% years.each do |year| %>
-          <a class="dropdown-item" href="<%= admin_movements_path(year: year, movement_type: movement_type) %>"><%= year %></a>
+          <li><a class="dropdown-item" href="<%= admin_movements_path(year: year, movement_type: movement_type) %>"><%= year %></a></li>
         <% end %>
-      </div>
+      </ul>
     </div>
 
     <div class="dropdown ml-2">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuMovementType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuMovementType" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= movement_types[movement_type] %>
       </a>
 
