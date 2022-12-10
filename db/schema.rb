@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_081934) do
-
+ActiveRecord::Schema[7.0].define(version: 2019_08_24_081934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "movements", force: :cascade do |t|
     t.string "number", null: false
-    t.datetime "date", null: false
+    t.datetime "date", precision: nil, null: false
     t.float "amount", null: false
     t.string "iban"
     t.text "communication"
     t.string "movement_type", null: false
     t.text "raw", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "custom_label"
     t.index ["movement_type"], name: "index_movements_on_movement_type"
     t.index ["number", "date"], name: "index_movements_on_number_and_date", unique: true
