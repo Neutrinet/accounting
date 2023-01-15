@@ -13,7 +13,7 @@
 
 #### Needed packages
 
-- `$ sudo apt-get install git autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev nodejs`
+- `$ sudo apt-get install git autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev`
 
 #### Install Ruby
 
