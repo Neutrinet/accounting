@@ -28,6 +28,12 @@
 - test it worked: `$ ruby -v`
 - install Bundler: `$ gem install bundler`
 
+#### Install Node
+
+```
+$ curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
+```
+
 #### Install Postgres
 
 - `$ sudo apt-get install postgresql libpq-dev`
