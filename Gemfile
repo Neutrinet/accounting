@@ -13,11 +13,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 5.2'
 gem 'sentry-raven'
 gem 'webpacker'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 6.0'
-  gem 'dotenv-rails'
 end
 
 group :development do
