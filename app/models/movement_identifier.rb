@@ -4,7 +4,6 @@ class MovementIdentifier
 
   VPS_REGEX = /vps|chez meme|chez mémé/i
   ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd|batterie|sata/i
-  MEMBERSHIP_IBPT_REGEX = /ibpt/i
   VPN_REGEX = /cotisation|abonnement|redevance|vpn|contribution|adhesion/i
   DONATION_REGEX = /don|donation|participation|soutien/i
   DOMAIN_REGEX = /renouvellement|domain|domaine/i
