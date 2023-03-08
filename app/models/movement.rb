@@ -15,7 +15,7 @@ class Movement < ApplicationRecord
     "chez_meme" => "Chez Mémé",
     "ibpt_membership" => "Cotisation IBPT",
     "hardware_purchase" => "Achat de matériel",
-    "general_assembly_costs" => "Frais Assemblée Générale"
+    "general_assembly_costs" => "Frais Assemblée Générale",
     "unknown" =>  "Inconnu",
     "custom" => "Custom Label"
   }
