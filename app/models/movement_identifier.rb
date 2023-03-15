@@ -4,9 +4,9 @@ class MovementIdentifier
 
   VPS_REGEX = /vps|chez meme|chez mémé/i
   ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd|batterie|sata/i
-  VPN_REGEX = /cotisation|abonnement|redevance|vpn|contribution|adhesion/i
+  VPN_REGEX = /cotisation|abonnement|redevance|vpn|contribution|adhesion|adhésion|membership/i
   DONATION_REGEX = /don|donation|participation|soutien/i
-  DOMAIN_REGEX = /renouvellement|domain|domaine/i
+  DOMAIN_REGEX = /renouvellement|domain|domaine|dns|gandi/i
   NEUTRINET_ACCOUNT_NUMBER = "652-8349784-09"
 
   def self.type_for(movement_row)
@@ -26,7 +26,7 @@ class MovementIdentifier
     return "hosting" if verixi? || ovh? || hetzner? || tetaneutral?
     return "moniteur" if moniteur?
     return "network" if gitoyen?
-    return "membership_ibpt" if membership_ibpt?
+    return "ibpt_membership" if ibpt_membership?
     return "hardware_order_member" if order?
     return "chez_meme" if vps?
     return "donation" if donation?
@@ -43,14 +43,11 @@ class MovementIdentifier
   end
 
   def banking_fee?
-    return false unless movement_row.debit?
-    no_third_party_iban? || movement_row.communication&.include?("Décompte de frais")
+    %w(BE45310915602789).include?(movement_row.iban) && movement_row.communication&.include?("Décompte de frais")
   end
 
   def interests?
-    return false if movement_row.communication&.start_with?("Virement en votre faveur")
-    return false if movement_row.communication =~ VPN_REGEX
-    no_third_party_iban? && movement_row.credit?
+    no_third_party_iban? && movement_row.communication&.start_with?("Décompte d'intérêts et frais")
   end
 
   def bank_communication?
@@ -60,11 +57,13 @@ class MovementIdentifier
   def olimex?
     %w(BG89FINV91501016150445
        BG23PRCB92301450517901
-       GB24MIDL40051570524370).include?(movement_row.iban)
+       GB24MIDL40051570524370
+       BG42UBBS78211413539319).include?(movement_row.iban)
   end
 
   def gandi?
-    %w(LU960030878793070000).include?(movement_row.iban)
+    %w(LU960030878793070000
+       FR7610107001180052505152341).include?(movement_row.iban)
   end
 
   def ovh?
@@ -91,8 +90,9 @@ class MovementIdentifier
     %w(FR7610278060310002045230163).include?(movement_row.iban)
   end
 
-  def membership_ibpt?
-    %w(BE75679122690751).include?(movement_row.iban)
+  def ibpt_membership?
+    %w(BE75679122690751
+       BE66679199989243).include?(movement_row.iban)
   end
 
   def order?
@@ -115,7 +115,7 @@ class MovementIdentifier
 
   def vpn?
     return true if movement_row.credit? && movement_row.communication =~ VPN_REGEX
-    return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX
+    return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX || movement_row.communication =~ VPS_REGEX || movement_row.communication =~ DONATION_REGEX
 
     movement_row.communication.nil? || movement_row.amount.between?(0.1, 12)
   end
