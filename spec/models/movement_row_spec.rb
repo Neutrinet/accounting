@@ -383,7 +383,7 @@ RSpec.describe MovementRow do
           debit: false,
           money_transaction: true,
           bank_communication: false,
-          communication: "GANDI DNS  - neutrinet.be - Ticket 1234567",
+          communication: "GANDI DNS - neutrinet.be - Ticket 1234567",
           movement_type: "domain_name_member"
         }
       end
