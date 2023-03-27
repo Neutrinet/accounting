@@ -353,8 +353,8 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
-    describe "domain name member" do
-      let(:fixture_name) { "domain_name_member" }
+    describe "domain name member 1" do
+      let(:fixture_name) { "domain_name_member_1" }
       let(:expected_values) do
         {
           iban: "BE12123456781234",
@@ -365,6 +365,25 @@ RSpec.describe MovementRow do
           money_transaction: true,
           bank_communication: false,
           communication: "pour le nom de domaine example.com",
+          movement_type: "domain_name_member"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
+    describe "domain name member 2" do
+      let(:fixture_name) { "domain_name_member_2" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456781234",
+          number: "269",
+          date: "23/07/2021",
+          amount: 15.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "GANDI DNS  - neutrinet.be - Ticket 1234567",
           movement_type: "domain_name_member"
         }
       end
