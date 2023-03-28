@@ -11,6 +11,11 @@ class Movement < ApplicationRecord
     "hardware_order_member" =>  "Achat de brique",
     "vpn" =>  "Cotisation VPN",
     "domain_name_member" =>  "Achat de nom de domaine",
+    "donation" => "Don",
+    "chez_meme" => "Chez Mémé",
+    "ibpt_membership" => "Cotisation IBPT",
+    "hardware_purchase" => "Achat de matériel",
+    "general_assembly_costs" => "Frais Assemblée Générale",
     "unknown" =>  "Inconnu",
     "custom" => "Custom Label"
   }
