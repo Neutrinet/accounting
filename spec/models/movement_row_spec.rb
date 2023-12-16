@@ -334,6 +334,25 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
+    describe "membership 1" do
+      let(:fixture_name) { "membership_1" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456781234",
+          number: "573",
+          date: "12/12/2023",
+          amount: 200.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "Cotisation 2023",
+          movement_type: "membership"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
     describe "vps" do
       let(:fixture_name) { "vps" }
       let(:expected_values) do
