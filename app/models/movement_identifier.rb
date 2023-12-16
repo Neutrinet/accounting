@@ -117,9 +117,11 @@ class MovementIdentifier
 
   def vpn?
     return true if movement_row.credit? && movement_row.communication =~ VPN_REGEX
+    return true if movement_row.credit? && movement_row.amount.between?(0.1, 10) && movement_row.communication =~ MEMBERSHIP_REGEX
+
     return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX || movement_row.communication =~ VPS_REGEX || movement_row.communication =~ DONATION_REGEX || movement_row.communication =~ MEMBERSHIP_REGEX
 
-    movement_row.communication.nil? || movement_row.amount.between?(0.1, 12)
+    movement_row.communication.nil? || movement_row.amount.between?(0.1, 10)
   end
 
   def membership?
