@@ -16,6 +16,7 @@ class Movement < ApplicationRecord
     "ibpt_membership" => "Cotisation IBPT",
     "hardware_purchase" => "Achat de matériel",
     "general_assembly_costs" => "Frais Assemblée Générale",
+    "membership" => "Cotisation",
     "unknown" =>  "Inconnu",
     "custom" => "Custom Label"
   }

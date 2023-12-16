@@ -180,7 +180,7 @@ RSpec.describe MovementRow do
           iban: "BE12123456781212",
           number: "349",
           date: "09/12/2016",
-          amount: 12.0,
+          amount: 10.0,
           debit: false,
           money_transaction: true,
           bank_communication: false,
@@ -192,8 +192,8 @@ RSpec.describe MovementRow do
       it_behaves_like "a parsed movement row"
     end
 
-    describe "vpn no iban" do
-      let(:fixture_name) { "vpn_no_iban" }
+    describe "membership no iban" do
+      let(:fixture_name) { "membership_no_iban" }
       let(:expected_values) do
         {
           iban: "123-1234567-12",
@@ -204,7 +204,7 @@ RSpec.describe MovementRow do
           money_transaction: true,
           bank_communication: false,
           communication: "Virement en votre faveur + 40,00 Cotisation Neutrinet Jane (Doe) Mar",
-          movement_type: "vpn"
+          movement_type: "membership"
         }
       end
 
@@ -328,6 +328,25 @@ RSpec.describe MovementRow do
           bank_communication: false,
           communication: "Eddy Merckx VPN DOMAIN MEMBERSHIP",
           movement_type: "vpn"
+        }
+      end
+
+      it_behaves_like "a parsed movement row"
+    end
+
+    describe "membership 1" do
+      let(:fixture_name) { "membership_1" }
+      let(:expected_values) do
+        {
+          iban: "BE12123456781234",
+          number: "573",
+          date: "12/12/2023",
+          amount: 200.0,
+          debit: false,
+          money_transaction: true,
+          bank_communication: false,
+          communication: "Cotisation 2023",
+          movement_type: "membership"
         }
       end
 

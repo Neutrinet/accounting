@@ -4,7 +4,8 @@ class MovementIdentifier
 
   VPS_REGEX = /vps|chez meme|chez mémé/i
   ORDER_REGEX = /commande|composant|composants|order|brique|cube|cable|câble|carte sd|batterie|sata/i
-  VPN_REGEX = /cotisation|abonnement|redevance|vpn|contribution|adhesion|adhésion|membership/i
+  VPN_REGEX = /abonnement|redevance|vpn|contribution/i
+  MEMBERSHIP_REGEX = /cotisation|adhesion|adhésion|membership/i
   DONATION_REGEX = /don|donation|participation|soutien/i
   DOMAIN_REGEX = /renouvellement|domain|domaine|dns|gandi/i
   NEUTRINET_ACCOUNT_NUMBER = "652-8349784-09"
@@ -31,6 +32,7 @@ class MovementIdentifier
     return "chez_meme" if vps?
     return "donation" if donation?
     return "vpn" if vpn?
+    return "membership" if membership?
     return "domain_name_member" if domain?
 
     "unknown"
@@ -115,9 +117,17 @@ class MovementIdentifier
 
   def vpn?
     return true if movement_row.credit? && movement_row.communication =~ VPN_REGEX
-    return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX || movement_row.communication =~ VPS_REGEX || movement_row.communication =~ DONATION_REGEX
+    return true if movement_row.credit? && movement_row.amount.between?(0.1, 10) && movement_row.communication =~ MEMBERSHIP_REGEX
 
-    movement_row.communication.nil? || movement_row.amount.between?(0.1, 12)
+    return false if movement_row.debit? || movement_row.communication =~ ORDER_REGEX || movement_row.communication =~ VPS_REGEX || movement_row.communication =~ DONATION_REGEX || movement_row.communication =~ MEMBERSHIP_REGEX
+
+    movement_row.communication.nil? || movement_row.amount.between?(0.1, 10)
+  end
+
+  def membership?
+    return if vpn?
+
+    movement_row.credit? && movement_row.communication =~ MEMBERSHIP_REGEX
   end
 
   def domain?
