@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_10_141660) do
+ActiveRecord::Schema[7.2].define(version: 2022_12_10_141660) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,5 +28,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_141660) do
     t.index ["movement_type"], name: "index_movements_on_movement_type"
     t.index ["number", "date"], name: "index_movements_on_number_and_date", unique: true
   end
-
 end
